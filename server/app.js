@@ -15,5 +15,7 @@ app.listen(portDecision, function(){
 //this route serves the index
 var index = require('./routes/index');
 
+var bot = require('./routes/bot');
+
 //use public folder
 app.use(express.static('public'));

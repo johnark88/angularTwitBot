@@ -1,5 +1,5 @@
 var twit = require('twit');
-var config = require('config');
+var config = require('./config.js');
 var Twitter = new twit(config);
 console.log('bot');
 
@@ -23,7 +23,7 @@ Twitter.get('search/tweets', params, function(err,data){
       id: retweetId
     },function(err,response){
       if(response){
-        console.log('Retweeted');
+        console.log('Retweeted ', response);
       }
       if(err){
         //error while tweeting
@@ -62,7 +62,7 @@ var favoriteTweet = function(){
         if(err){
           console.log('Can not be favorite--Error twitterbot');
         }else{
-          console.log('Favorited -- Success!');
+          console.log('Favorited -- Success!', data.retweeted_status);
         }
       });
     }
