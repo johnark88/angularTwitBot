@@ -5,11 +5,17 @@
     <script src="vendors/angular.min.js"></script>
     <script src="vendors/angular-route.min.js"></script>
     <script src="client.js"></script>
+    <script src="scripts/controllers/loginController.js"></script>
     <link rel="stylesheet" href="stylesheets/style.css">
     <title></title>
   </head>
   <body ng-controller="home">
-    This is a test 
+    This is a test
+    <ul class="topnav" id="myTopnav">
+            <li><a href="#login"> Log In </a></li>
+            <li><a href="#home"> Home </a></li>
+        </ul>
+
       <main ng-view></main>
   </body>
 </html>
