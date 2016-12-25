@@ -7,7 +7,7 @@ console.log('bot');
 //result_type sets to search for latest tweets since it started or made the last retweet
 var retweet = function(){
   var params = {
-    q: '#nodejs, #Nodejs, #javascript, #JS',
+    q: '#javascript, #JS',
     result_type: 'recent',
     lang: 'en'
   };
@@ -27,7 +27,7 @@ Twitter.get('search/tweets', params, function(err,data){
       }
       if(err){
         //error while tweeting
-        console.log('Something Went Wrong with twitterbot');
+        console.log('Something Went Wrong with twitterbot ', err);
       }
     });
   } else {
@@ -46,7 +46,7 @@ setInterval(retweet, 3000000);
 //find random tweet and favorite it
 var favoriteTweet = function(){
   var params ={
-    q: '#nodejs, #Nodejs',
+    q: '#javascript, #js',
     result_type: 'recent',
     lang: 'en'
   };
@@ -62,7 +62,7 @@ var favoriteTweet = function(){
         if(err){
           console.log('Can not be favorite--Error twitterbot');
         }else{
-          console.log('Favorited -- Success!', data.retweeted_status);
+          console.log('Favorited -- Success!', data);
         }
       });
     }
