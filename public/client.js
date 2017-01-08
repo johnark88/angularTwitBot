@@ -5,17 +5,17 @@ var myApp = angular.module('myApp', ['ngRoute']);
 
 
 
-myApp.config(["$routeProvider", function($routeProvider){
+myApp.config(["$routeProvider", function($routeProvider) {
     $routeProvider.
-  when("/login", {
-    templateUrl: "/views/logIn.html",
-    controller: "loginController"
-  }).
-  otherwise({
-       redirectTo: "/"
-   });
+    when("/login", {
+        templateUrl: "/views/logIn.html",
+        controller: "loginController"
+    }).
+    otherwise({
+        redirectTo: "/"
+    });
 }]);
 
-myApp.controller('home',['$scope', function($scope){
-  console.log('Angular');
+myApp.controller('home', ['$scope', function($scope) {
+    console.log('Angular');
 }]);
