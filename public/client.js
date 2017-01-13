@@ -11,6 +11,9 @@ myApp.config(["$routeProvider", function($routeProvider) {
         templateUrl: "/views/logIn.html",
         controller: "loginController"
     }).
+    when("/home",{
+      templateUrl: "/views/home.html"
+    }).
     otherwise({
         redirectTo: "/"
     });

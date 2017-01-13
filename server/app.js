@@ -15,7 +15,8 @@ app.listen(portDecision, function(){
 //this route serves the index
 var index = require('./routes/index');
 
-var bot = require('./routes/bot');
+//this route serves the twitter bot
+// var bot = require('./routes/bot');
 
 //use public folder
 app.use(express.static('public'));
