@@ -7,17 +7,25 @@
         <script src="vendors/angular-route.min.js"></script>
         <script src="client.js"></script>
         <script src="scripts/controllers/loginController.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <link rel="stylesheet" href="stylesheets/style.css">
         <title></title>
     </head>
 
     <body ng-controller="home">
-        <ul class="topnav" id="myTopnav">
-            <li><a href="#!login"> Log In </a></li>
-            <li><a href="#!home"> Home </a></li>
-        </ul>
-          <h1> This is Twitter Bot </h1>
-        <main ng-view></main>
+        <div class="container">
+            <div class="row">
+                <div class="">
+                    <ul>
+                        <li><a href="#!login"> Log In </a></li>
+                        <li><a href="#!home"> Home </a></li>
+                    </ul>
+                    <h1> This is Twitter Bot </h1>
+                </div>
+            </div>
+            <main ng-view></main>
     </body>
-
 </html>
