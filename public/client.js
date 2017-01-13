@@ -15,7 +15,7 @@ myApp.config(["$routeProvider", function($routeProvider) {
       templateUrl: "/views/home.html"
     }).
     otherwise({
-        redirectTo: "/"
+        redirectTo: "/login"
     });
 }]);
 

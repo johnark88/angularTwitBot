@@ -1,6 +1,7 @@
 var twit = require('twit');
 var config = require('./config.js');
 var Twitter = new twit(config);
+require('dotenv').config(); // Imports all .env values
 console.log('bot');
 
 //find latest tweets based on query(q)
@@ -23,11 +24,11 @@ var retweet = function() {
                 id: retweetId
             }, function(err, response) {
                 if (response) {
-                    console.log('Retweeted ', response);
+                    console.log('Retweeted ');
                 }
                 if (err) {
                     //error while tweeting
-                    console.log('Something Went Wrong with twitterbot ', err);
+                    console.log('Something Went Wrong with twitterbot ');
                 }
             });
         } else {
@@ -64,7 +65,7 @@ var favoriteTweet = function() {
                 if (err) {
                     console.log('Can not be favorite--Error twitterbot');
                 } else {
-                    console.log('Favorited -- Success!', data);
+                    console.log('Favorited -- Success!');
                 }
             });
         }

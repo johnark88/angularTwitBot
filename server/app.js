@@ -1,9 +1,10 @@
+require('dotenv').config(); // Imports all .env values
 var express = require('express');
 var app = express();
 var path = require('path');
 var bodyParser = require('body-parser');
 var urlencodedParser = bodyParser.urlencoded({extended: false});
-var portDecision = process.env.PORT|| 9002;
+var portDecision = process.env.PORT;
 
 app.use(bodyParser.json());
 
@@ -16,7 +17,7 @@ app.listen(portDecision, function(){
 var index = require('./routes/index');
 
 //this route serves the twitter bot
-// var bot = require('./routes/bot');
+var bot = require('./routes/bot');
 
 //use public folder
 app.use(express.static('public'));
