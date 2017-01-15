@@ -1,23 +1,41 @@
-require('dotenv').config(); // Imports all .env values
+var dotenv = require('dotenv');
 var express = require('express');
 var app = express();
 var path = require('path');
 var bodyParser = require('body-parser');
-var urlencodedParser = bodyParser.urlencoded({extended: false});
-var portDecision = process.env.PORT;
+var path = require('path');
+var logger = require('morgan');
+var cookieParser = require('cookie-parser');
+var session = require('express-session');
+var urlencodedParser = bodyParser.urlencoded({
+    extended: false
+});
+
 
 app.use(bodyParser.json());
+app.use(logger('dev'));
+app.use(cookieParser());
 
-//port decision for heroku and local use
-app.listen(portDecision, function(){
-  console.log('I am listening on ', portDecision);
-});
+// Imports all .env values
+dotenv.load();
+
 
 //this route serves the index
 var index = require('./routes/index');
 
 //this route serves the twitter bot
-var bot = require('./routes/bot');
+// var bot = require('./routes/bot');
+
+
+// display the error and stacktrace accordingly.
+app.use(function(err, req, res, next) {
+    res.status(err.status || 500);
+    res.send(err);
+});
+
+app.listen(process.env.PORT, function() {
+    console.log('I am listening on ', process.env.PORT);
+});
 
 //use public folder
 app.use(express.static('public'));
