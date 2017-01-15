@@ -1,4 +1,5 @@
 var dotenv = require('dotenv');
+var firebase = require("firebase");
 var express = require('express');
 var app = express();
 var path = require('path');
@@ -10,6 +11,7 @@ var session = require('express-session');
 var urlencodedParser = bodyParser.urlencoded({
     extended: false
 });
+
 
 
 app.use(bodyParser.json());

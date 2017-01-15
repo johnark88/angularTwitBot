@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server/app.js"
+    "start": "node server/app.js",
+    "test": "nodemon server/app.js"
   },
   "author": "",
   "license": "ISC",
@@ -19,6 +19,8 @@
     "dotenv": "^4.0.0",
     "express": "^4.14.0",
     "express-session": "^1.14.2",
+    "firebase": "^3.6.5",
+    "firebase-admin": "^4.0.4",
     "morgan": "^1.7.0",
     "passport": "^0.3.2",
     "passport-auth0": "^0.6.0",
