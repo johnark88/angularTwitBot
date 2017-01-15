@@ -11,6 +11,8 @@ var session = require('express-session');
 var urlencodedParser = bodyParser.urlencoded({
     extended: false
 });
+var decoder = require('./routes/decoder');
+var login = require('./routes/login');
 
 
 
@@ -27,6 +29,9 @@ var index = require('./routes/index');
 
 //this route serves the twitter bot
 // var bot = require('./routes/bot');
+
+
+app.use("/login", login);
 
 
 // display the error and stacktrace accordingly.
