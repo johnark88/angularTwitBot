@@ -1,7 +1,8 @@
 myApp.controller('loginController', ['$scope', '$http', '$firebaseAuth', function($scope, $http, $firebaseAuth) {
     console.log('Log in Controller');
     var auth = $firebaseAuth();
-
+    $scope.secret = [];
+    $scope.batman= "batman";
     //login button click
     $scope.logIn = function() {
         console.log('logging in');
@@ -25,7 +26,9 @@ myApp.controller('loginController', ['$scope', '$http', '$firebaseAuth', functio
             id_token: idToken
           }
         }).then(function(response){
-          $scope.secretData = response.data;
+          console.log(response.data, 'response');
+          $scope.secret = response.data;
+          console.log($scope.secret.name);
         });
       });
     } else {

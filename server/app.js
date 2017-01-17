@@ -10,16 +10,17 @@ var decoder = require('./routes/decoder');
 var login = require('./routes/login');
 
 //this route serves the index
-
 app.get('/', function(req, res){
   res.sendFile(path.resolve('./public/index.html'));
 });
+
 //use public folder
 app.use(express.static('public'));
 
+//use this to decode token
 app.use(decoder.token);
-
 app.use(bodyParser.json());
+
 app.use("/login", login);
 
 // Imports all .env values
