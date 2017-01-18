@@ -1,6 +1,9 @@
-myApp.controller('loginController', ['$scope', '$http', '$firebaseAuth', function($scope, $http, $firebaseAuth) {
-    console.log('Log in Controller');
+myApp.controller('homeController', ['$scope', '$http', '$firebaseAuth', function($scope, $http, $firebaseAuth) {
+    console.log('home Controller');
     var auth = $firebaseAuth();
+    $scope.loggedIn = false;
+    $scope.loggedOut = true;
+
     $scope.secret = [];
     $scope.batman= "batman";
     //login button click
@@ -29,6 +32,7 @@ myApp.controller('loginController', ['$scope', '$http', '$firebaseAuth', functio
           console.log(response.data, 'response');
           $scope.secret = response.data;
           console.log($scope.secret.name);
+          $scope.ifFirebaseUser(firebaseUser);
         });
       });
     } else {
@@ -38,10 +42,22 @@ myApp.controller('loginController', ['$scope', '$http', '$firebaseAuth', functio
 
   });
 
+  $scope.ifFirebaseUser = function(fbu) {
+        if (fbu) {
+            $scope.loggedIn = true;
+            $scope.loggedOut = false;
+        } else {
+            $scope.loggedIn = false;
+            $scope.loggedOut = true;
+            $location.reload();
+        }
+    };
+
   // This code runs when the user logs out
   $scope.logOut = function(){
     auth.$signOut().then(function(){
       console.log('Logging the user out!');
+      $scope.ifFirebaseUser();
     });
   };
 

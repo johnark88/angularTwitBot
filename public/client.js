@@ -5,18 +5,19 @@ var myApp = angular.module('myApp', ['ngRoute','firebase']);
 
 myApp.config(["$routeProvider", function($routeProvider) {
     $routeProvider.
-    when("/login", {
-        templateUrl: "/views/logIn.html",
-        controller: "loginController"
+    when("/", {
+        templateUrl: "/views/home.html",
     }).
-    when("/home",{
-      templateUrl: "/views/home.html"
+    when("/bot",{
+      templateUrl: "/views/bot.html",
+      controller: "botController"
     }).
     otherwise({
-        redirectTo: "/login"
+        redirectTo: "/"
     });
 }]);
 
 myApp.controller('home', ['$scope', function($scope) {
     console.log('Angular');
+
 }]);
