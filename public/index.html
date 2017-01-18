@@ -36,6 +36,7 @@
                         <li><button ng-show="loggedIn" ng-click="logOut()" class="btn btn-lg btn-primary btn-block">Sign Out</button></li>
                     </ul>
                     <h1> This is Twitter Bot </h1>
+                    <h3 ng-show="loggedOut">Please Log In</h3>
                 </div>
                 <div ng-show="loggedIn" class="user">
                 <p>{{secret.name}}</p>

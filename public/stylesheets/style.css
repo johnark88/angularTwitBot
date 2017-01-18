@@ -5,4 +5,20 @@ img {
 
 ul{
   list-style-type: none;
+  text-align: center;
+}
+.btn  {
+  width: 200px;
+}
+
+h1  {
+  text-align: center;
+}
+
+h3  {
+  text-align: center;
+}
+
+.user {
+  text-align: center;
 }
