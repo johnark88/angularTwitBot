@@ -1,4 +1,4 @@
-myApp.controller('botController', ['$scope', '$http', '$firebaseAuth', function($scope, $http, $firebaseAuth) {
+myApp.controller('botController', ['$scope', '$http', function($scope, $httpx) {
     console.log('bot Controller');
 
   }]);
