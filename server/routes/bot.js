@@ -84,4 +84,10 @@ function ranDom(arr) {
     return arr[index];
 }
 
+
+router.get('/', function(req, res) {
+    console.log('batman');
+    res.send("this is twit bot backend");
+});
+
 module.exports = router;

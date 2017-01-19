@@ -9,7 +9,10 @@ myApp.controller('botController', ['$scope', '$http', function($scope, $httpx) {
           headers: {
             id_token: idToken
           }
-      )}.then(function(response){
+      }).then(function(response){
         console.log('response',response);
-      }
+        $scope.bot = response;
+      });
+        };
+
   }]);
