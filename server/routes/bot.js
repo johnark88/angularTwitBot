@@ -6,12 +6,14 @@ var Twitter = new twit(config);
 require('dotenv').config(); // Imports all .env values
 console.log('bot');
 
+var retweetRes = [];
+var favRes = [];
 
 //find latest tweets based on query(q)
 //result_type sets to search for latest tweets since it started or made the last retweet
 var retweet = function() {
     var params = {
-        q: '#javascript, #JS',
+        q: '#node, #nodejs',
         result_type: 'recent',
         lang: 'en'
     };
@@ -27,16 +29,18 @@ var retweet = function() {
                 id: retweetId
             }, function(err, response) {
                 if (response) {
-                    console.log('Retweeted ');
+                    console.log('Retweeted');
+                    var retweetRes = 'Retweeted';
                 }
                 if (err) {
                     //error while tweeting
-                    console.log('Something Went Wrong with twitterbot ');
+                    console.log('Something Went Wrong with retweet ');
+                    var retweetRes = 'Something Went Wrong with retweet';
                 }
             });
         } else {
             //if unable to search a tweet
-            console.log('Something Went wrong while searching twitterbot');
+            console.log('Something Went wrong while searching');
         }
     });
 };
@@ -44,13 +48,13 @@ var retweet = function() {
 //grab & retweet as soon as program is running
 retweet();
 //retweet in every 50 minutes
-setInterval(retweet, 3000000);
+setInterval(retweet, 3600000);
 
 //favorite Bot ===============================================
 //find random tweet and favorite it
 var favoriteTweet = function() {
     var params = {
-        q: '#javascript, #js',
+        q: '#node, #nodejs',
         result_type: 'recent',
         lang: 'en'
     };
@@ -66,9 +70,11 @@ var favoriteTweet = function() {
                 id: randomTweet.id_str
             }, function(err, response) {
                 if (err) {
-                    console.log('Can not be favorite--Error twitterbot');
+                    console.log('Can not be favorite');
+                    var favRes = 'Can not be favorited';
                 } else {
                     console.log('Favorited -- Success!');
+                    var favRes = 'Favorited Success!';
                 }
             });
         }
@@ -87,8 +93,8 @@ function ranDom(arr) {
 
 router.get('/', function(req, res){
     console.log('router');
-    console.log(req.decodedToken);
-    res.send("this is twit bot backend");
+    console.log(retweetRes, 'response to send');
+    res.send();
 });
 
 
