@@ -37,7 +37,6 @@ myApp.controller('homeController', ['$scope', '$http', '$firebaseAuth', function
       });
     } else {
       console.log('Not logged in or not authorized.');
-      $scope.secretData = "Log in to get some secret data.";
     }
 
   });

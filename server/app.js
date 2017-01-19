@@ -23,6 +23,7 @@ app.use(express.static('public'));
 
 //use this to decode token
 app.use(decoder.token);
+
 app.use(bodyParser.json());
 
 app.use("/login", login);
@@ -30,10 +31,6 @@ app.use("/bot", bot);
 
 // Imports all .env values
 dotenv.load();
-
-
-
-
 
 // display the error and stacktrace accordingly.
 app.use(function(err, req, res, next) {

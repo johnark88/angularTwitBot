@@ -6,6 +6,12 @@ var Twitter = new twit(config);
 require('dotenv').config(); // Imports all .env values
 console.log('bot');
 
+router.get('/bot', function(req, res) {
+    console.log('router');
+    res.send("this is twit bot backend");
+});
+
+
 //find latest tweets based on query(q)
 //result_type sets to search for latest tweets since it started or made the last retweet
 var retweet = function() {
@@ -83,11 +89,5 @@ function ranDom(arr) {
     var index = Math.floor(Math.random() * arr.length);
     return arr[index];
 }
-
-
-router.get('/', function(req, res) {
-    console.log('batman');
-    res.send("this is twit bot backend");
-});
 
 module.exports = router;
