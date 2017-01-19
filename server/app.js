@@ -6,8 +6,12 @@ var path = require('path');
 var urlencodedParser = bodyParser.urlencoded({
     extended: false
 });
+//decode token
 var decoder = require('./routes/decoder');
+//verify decoded token
 var login = require('./routes/login');
+//this route serves the twitter bot
+var bot = require('./routes/bot');
 
 //this route serves the index
 app.get('/', function(req, res){
@@ -22,13 +26,13 @@ app.use(decoder.token);
 app.use(bodyParser.json());
 
 app.use("/login", login);
+app.use("/bot", bot);
 
 // Imports all .env values
 dotenv.load();
 
 
-//this route serves the twitter bot
-// var bot = require('./routes/bot');
+
 
 
 // display the error and stacktrace accordingly.

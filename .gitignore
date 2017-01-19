@@ -3,3 +3,4 @@ node_modules
 .env
 server/routes/config.js
 server/firebase-service-account.json
+readme.txt

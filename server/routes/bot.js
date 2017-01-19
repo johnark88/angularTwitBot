@@ -1,3 +1,5 @@
+var express = require('express');
+var router = express.Router();
 var twit = require('twit');
 var config = require('./config.js');
 var Twitter = new twit(config);
@@ -81,3 +83,5 @@ function ranDom(arr) {
     var index = Math.floor(Math.random() * arr.length);
     return arr[index];
 }
+
+module.exports = router;
