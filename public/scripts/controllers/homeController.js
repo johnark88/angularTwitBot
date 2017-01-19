@@ -32,6 +32,7 @@ myApp.controller('homeController', ['$scope', '$http', '$firebaseAuth', function
           console.log(response.data, 'response');
           $scope.secret = response.data;
           console.log($scope.secret.name);
+          sessionStorage.userAuth = idToken;
           $scope.ifFirebaseUser(firebaseUser);
         });
       });

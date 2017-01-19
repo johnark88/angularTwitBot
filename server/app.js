@@ -13,6 +13,7 @@ var login = require('./routes/login');
 //this route serves the twitter bot
 var bot = require('./routes/bot');
 
+
 //this route serves the index
 app.get('/', function(req, res){
   res.sendFile(path.resolve('./public/index.html'));

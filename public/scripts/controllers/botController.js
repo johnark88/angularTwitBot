@@ -1,9 +1,10 @@
 myApp.controller('botController', ['$scope', '$http', function($scope, $http) {
     console.log('bot Controller');
 
+    var idToken = sessionStorage.getItem('userAuth');
     $scope.bot = [];
 
-    $scope.init = function() {
+    $scope.getBot = function() {
         $http({
             method: 'GET',
             url: '/bot',
@@ -13,6 +14,7 @@ myApp.controller('botController', ['$scope', '$http', function($scope, $http) {
         }).then(function(response) {
             console.log('response', response);
             $scope.bot = response.data;
+            console.log($scope.bot);
         });
     };
 
