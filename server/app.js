@@ -10,8 +10,10 @@ var urlencodedParser = bodyParser.urlencoded({
 var decoder = require('./routes/decoder');
 //verify decoded token
 var login = require('./routes/login');
-//this route serves the twitter bot
+
+//these route serves the twitter bot
 var bot = require('./routes/bot');
+var favBot = require('./routes/favBot');
 
 
 //this route serves the index
@@ -29,6 +31,7 @@ app.use(bodyParser.json());
 
 app.use("/login", login);
 app.use("/bot", bot);
+app.use("/favBot", favBot);
 
 // Imports all .env values
 dotenv.load();
