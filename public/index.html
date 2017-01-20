@@ -34,19 +34,19 @@
                         <li><button ng-show="loggedOut" ng-click="logIn()" class="btn btn-sm btn-primary btn-block">Sign In</button></li>
                         <li><button ng-show="loggedIn" ng-click="logOut()" class="btn btn-sm btn-primary btn-block">Sign Out</button></li>
                         <div class="user" ng-show="loggedIn">
-                        <li>{{secret.name}}</li>
-                        <li><img ng-src= {{secret.picture}} alt=""></li>
+                            <li>{{secret.name}}</li>
+                            <li><img ng-src= {{secret.picture}} alt=""></li>
                         </div>
                     </ul>
-                        <h1> This is Twitter Bot </h1>
-                        <h3 ng-show="loggedOut">Please Log In</h3>
-                    </div>
-
-
-
-
+                    <h1> This is Twitter Bot </h1>
+                    <h3 ng-show="loggedOut">Please Log In</h3>
                 </div>
-                <main ng-view ng-if="loggedIn">
+
+
+
+
+            </div>
+            <main ng-view ng-if="loggedIn">
     </body>
 
 </html>

@@ -1,6 +1,6 @@
 console.log('sourced');
 
-var myApp = angular.module('myApp', ['ngRoute','firebase']);
+var myApp = angular.module('myApp', ['ngRoute', 'firebase']);
 
 
 myApp.config(["$routeProvider", function($routeProvider) {
@@ -8,9 +8,9 @@ myApp.config(["$routeProvider", function($routeProvider) {
     when("/", {
         templateUrl: "/views/home.html",
     }).
-    when("/bot",{
-      templateUrl: "/views/bot.html",
-      controller: "botController"
+    when("/bot", {
+        templateUrl: "/views/bot.html",
+        controller: "botController"
     }).
     otherwise({
         redirectTo: "/"

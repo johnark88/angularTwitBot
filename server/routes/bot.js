@@ -45,11 +45,6 @@ var retweet = function() {
     });
 };
 
-//grab & retweet as soon as program is running
-retweet();
-//retweet in every 50 minutes
-setInterval(retweet, 3600000);
-
 //favorite Bot ===============================================
 //find random tweet and favorite it
 var favoriteTweet = function() {
@@ -80,10 +75,15 @@ var favoriteTweet = function() {
         }
     });
 };
+
 //grab and favorite as program starts
 favoriteTweet();
 //favorite a tweet every 60 minutes
 setInterval(favoriteTweet, 3600000);
+//grab & retweet as soon as program is running
+retweet();
+//retweet in every 50 minutes
+setInterval(retweet, 3600000);
 
 //function to generate a random tweet tweet
 function ranDom(arr) {
@@ -91,10 +91,16 @@ function ranDom(arr) {
     return arr[index];
 }
 
+var objectToSend = {
+  response: favRes,
+  response1: retweetRes
+};
+
+console.log(objectToSend, 'objectTOSENDDDDDDDDDDDDDD');
 router.get('/', function(req, res){
     console.log('router');
     console.log(retweetRes, 'response to send');
-    res.send();
+    return res.send(JSON.stringify(favRes));
 });
 
 
