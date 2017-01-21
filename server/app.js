@@ -3,8 +3,6 @@ var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 var path = require('path');
-var http = require('http').Server(app);
-var io = require('socket.io')(http);
 var urlencodedParser = bodyParser.urlencoded({
     extended: false
 });
@@ -37,10 +35,6 @@ app.use("/favBot", favBot);
 
 // Imports all .env values
 dotenv.load();
-
-io.on('connection', function(socket){
-  console.log('a user connected');
-});
 
 // display the error and stacktrace accordingly.
 app.use(function(err, req, res, next) {

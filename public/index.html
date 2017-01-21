@@ -5,8 +5,8 @@
         <meta charset="utf-8">
         <script src="vendors/angular.min.js"></script>
         <script src="vendors/angular-route.min.js"></script>
-        <script src="vendors/socket.io.js"></script>
-        <!-- Firebase -->
+        <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
+         <!-- Firebase -->
         <script src="https://www.gstatic.com/firebasejs/3.6.0/firebase.js"></script>
 
         <!-- AngularFire -->
@@ -43,7 +43,7 @@
                     </ul>
                     <h1> This is Twitter Bot </h1>
                     <h3 ng-show="loggedOut">Please Log In</h3>
-                    <h4>{{nope}}</h4>
+                    <h4 ng-show="loggedOut">{{nope}}</h4>
                 </div>
 
 
