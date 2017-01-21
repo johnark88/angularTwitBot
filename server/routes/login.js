@@ -21,7 +21,7 @@ router.get("/", function(req, res){
           } else {
             var clearanceLevel = clearanceLevelQueryResult.rows[0].clearance_level;
             // Based on the clearance level of the individual, give them access to different information
-            client.query('SELECT * FROM secret_information WHERE secrecy_level<=$1', [clearanceLevel], function(err, results){
+            client.query('SELECT * FROM secret_information WHERE secrecy_level=$1', [clearanceLevel], function(err, results){
               if(err){
                 console.log('Error COMPLETING secret_information query task', error);
                 res.sendStatus(500);

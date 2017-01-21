@@ -29,8 +29,8 @@ myApp.controller('homeController', ['$scope', '$http', '$firebaseAuth', function
                         id_token: idToken
                     }
                 }).then(function(response) {
-                    $scope.secret = response.data;
-                    console.log($scope.secret);
+                    $scope.userLVL = response.data;
+                    console.log($scope.userLVL);
                     sessionStorage.userLVL = response.data;
                     sessionStorage.userAuth = idToken;
                     sessionStorage.userName = firebaseUser.displayName;
