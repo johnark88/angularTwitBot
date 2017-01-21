@@ -21,6 +21,7 @@
     "express-session": "^1.14.2",
     "firebase": "^3.6.5",
     "firebase-admin": "^4.0.4",
+    "socket.io": "^1.7.2",
     "twit": "^2.2.5"
   }
 }
