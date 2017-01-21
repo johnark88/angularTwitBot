@@ -5,7 +5,7 @@ myApp.controller('homeController', ['$scope', '$http', '$firebaseAuth', function
     $scope.loggedOut = true;
 
     $scope.secret = [];
-    $scope.batman= "batman";
+    $scope.batman = "batman";
     //login button click
     $scope.logIn = function() {
         console.log('logging in');
@@ -17,33 +17,37 @@ myApp.controller('homeController', ['$scope', '$http', '$firebaseAuth', function
         });
     };
 
-    auth.$onAuthStateChanged(function(firebaseUser){
-    // firebaseUser will be null if not logged in
-    if(firebaseUser) {
-      // This is where we make our call to our server
-      firebaseUser.getToken().then(function(idToken){
-        $http({
-          method: 'GET',
-          url: '/login',
-          headers: {
-            id_token: idToken
-          }
-        }).then(function(response){
-          console.log(response.data, 'response');
-          $scope.secret = response.data;
-          console.log($scope.secret.name);
-          sessionStorage.userAuth = idToken;
-          $scope.ifFirebaseUser(firebaseUser);
-        });
-      });
-    } else {
-      console.log('Not logged in or not authorized.');
-      $scope.nope = "Not logged in or not authorized";
-    }
+    auth.$onAuthStateChanged(function(firebaseUser) {
+        // firebaseUser will be null if not logged in
+        if (firebaseUser) {
+            // This is where we make our call to our server
+            firebaseUser.getToken().then(function(idToken) {
+                $http({
+                    method: 'GET',
+                    url: '/login',
+                    headers: {
+                        id_token: idToken
+                    }
+                }).then(function(response) {
+                    $scope.secret = response.data;
+                    console.log($scope.secret);
+                    sessionStorage.userAuth = idToken;
+                    sessionStorage.userName = firebaseUser.displayName;
+                    sessionStorage.userPic = firebaseUser.photoURL;
+                    $scope.ifFirebaseUser(firebaseUser);
+                });
+            });
+        } else {
+            console.log('Not logged in or not authorized.');
+            $scope.nope = "Not logged in or not authorized";
+        }
 
-  });
+    });
+        $scope.userName = sessionStorage.userName;
+        $scope.userPic = sessionStorage.userPic;
 
-  $scope.ifFirebaseUser = function(fbu) {
+
+    $scope.ifFirebaseUser = function(fbu) {
         if (fbu) {
             $scope.loggedIn = true;
             $scope.loggedOut = false;
@@ -54,13 +58,13 @@ myApp.controller('homeController', ['$scope', '$http', '$firebaseAuth', function
         }
     };
 
-  // This code runs when the user logs out
-  $scope.logOut = function(){
-    auth.$signOut().then(function(){
-      console.log('Logging the user out!');
-      $scope.ifFirebaseUser();
-    });
-  };
+    // This code runs when the user logs out
+    $scope.logOut = function() {
+        auth.$signOut().then(function() {
+            console.log('Logging the user out!');
+            $scope.ifFirebaseUser();
+        });
+    };
 
 
 }]);
