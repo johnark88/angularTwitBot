@@ -29,7 +29,7 @@ myApp.controller('botController', ['$scope', '$http', '$interval', function($sco
             console.log('favBot Response', response);
             $scope.favBot = response.data;
         });
-    }, 3610000);
+    }, 60000);
 }]);
 //------set up timestamp display for every time it updates from server. Create a running log of updates as well.
 //------ figure out the res.send if err statement in bot.js file

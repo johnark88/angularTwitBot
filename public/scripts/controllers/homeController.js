@@ -38,6 +38,7 @@ myApp.controller('homeController', ['$scope', '$http', '$firebaseAuth', function
       });
     } else {
       console.log('Not logged in or not authorized.');
+      $scope.nope = "Not logged in or not authorized";
     }
 
   });
