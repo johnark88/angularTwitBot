@@ -23,5 +23,11 @@
     "firebase-admin": "^4.0.4",
     "socket.io": "^1.7.2",
     "twit": "^2.2.5"
+  },
+  "devDependencies": {
+    "jasmine-core": "^2.5.2",
+    "karma": "^1.4.0",
+    "karma-chrome-launcher": "^2.0.0",
+    "karma-jasmine": "^1.1.0"
   }
 }
