@@ -31,6 +31,7 @@ myApp.controller('homeController', ['$scope', '$http', '$firebaseAuth', function
                 }).then(function(response) {
                     $scope.secret = response.data;
                     console.log($scope.secret);
+                    sessionStorage.userLVL = response.data;
                     sessionStorage.userAuth = idToken;
                     sessionStorage.userName = firebaseUser.displayName;
                     sessionStorage.userPic = firebaseUser.photoURL;
@@ -43,8 +44,9 @@ myApp.controller('homeController', ['$scope', '$http', '$firebaseAuth', function
         }
 
     });
-        $scope.userName = sessionStorage.userName;
-        $scope.userPic = sessionStorage.userPic;
+    //pull user info from session storage
+    $scope.userName = sessionStorage.userName;
+    $scope.userPic = sessionStorage.userPic;
 
 
     $scope.ifFirebaseUser = function(fbu) {
@@ -54,7 +56,7 @@ myApp.controller('homeController', ['$scope', '$http', '$firebaseAuth', function
         } else {
             $scope.loggedIn = false;
             $scope.loggedOut = true;
-            $location.reload();
+            // $location.reload();
         }
     };
 

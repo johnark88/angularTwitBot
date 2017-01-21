@@ -12,6 +12,10 @@ myApp.config(["$routeProvider", function($routeProvider) {
         templateUrl: "/views/bot.html",
         controller: "botController"
     }).
+    when("/test", {
+      templateUrl: "/views/log.html",
+      controller: "logController"
+    }).
     otherwise({
         redirectTo: "/"
     });

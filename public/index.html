@@ -16,6 +16,7 @@
         <script src="client.js"></script>
         <script src="scripts/controllers/homeController.js"></script>
         <script src="scripts/controllers/botController.js"></script>
+        <script src="scripts/controllers/logController.js"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -31,6 +32,7 @@
                     <ul>
                         <li><a href="#!home"> Home </a></li>
                         <li><a href="#!bot"> Bot </a></li>
+                        <li ><a href="#!test"> Log </a></li>
                         <li><button ng-show="loggedOut" ng-click="logIn()" class="btn btn-sm btn-primary btn-block">Sign In</button></li>
                         <li><button ng-show="loggedIn" ng-click="logOut()" class="btn btn-sm btn-primary btn-block">Sign Out</button></li>
                         <div class="user" ng-show="loggedIn">
