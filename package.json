@@ -4,7 +4,7 @@
   "description": "Twiter bot with firebase",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "karma start karma.conf.js",
     "start": "node server/app.js",
     "dev": "nodemon server/app.js"
   },
