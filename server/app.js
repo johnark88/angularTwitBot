@@ -3,6 +3,7 @@ var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 var path = require('path');
+var morgan = require('morgan');
 var urlencodedParser = bodyParser.urlencoded({
     extended: false
 });
@@ -28,6 +29,7 @@ app.use(express.static('public'));
 app.use(decoder.token);
 
 app.use(bodyParser.json());
+app.use(morgan('dev'));
 
 app.use("/login", login);
 app.use("/bot", bot);
