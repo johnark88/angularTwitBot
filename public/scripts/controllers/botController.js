@@ -32,5 +32,6 @@ myApp.controller('botController', ['$scope', '$http', '$interval', function($sco
         });
         //this is 60min interval in ms 3600000
         //this is a 10min interval in ms 600000
-    }, 600000);
+        //this is a 1min interval in ms 60000
+    }, 3600000);
 }]);
