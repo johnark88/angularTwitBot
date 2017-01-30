@@ -1,6 +1,6 @@
 myApp.controller('homeController', ['$scope', '$http', '$firebaseAuth', function($scope, $http, $firebaseAuth) {
     console.log('home Controller');
-    var auth = $firebaseAuth();
+     auth = $firebaseAuth();
     $scope.loggedIn = false;
     $scope.loggedOut = true;
 
@@ -30,7 +30,7 @@ myApp.controller('homeController', ['$scope', '$http', '$firebaseAuth', function
                         id_token: idToken
                     }
                 }).then(function(response) {
-                  //pull secruity level from response.data 
+                  //pull secruity level from response.data
                   response.data.forEach(function(a){
                       console.log(a.secrecy_level);
                       $scope.userLVL = a.secrecy_level;
