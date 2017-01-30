@@ -4,3 +4,4 @@ node_modules
 server/routes/config.js
 server/firebase-service-account.json
 readme.txt
+.idea

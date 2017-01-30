@@ -30,6 +30,7 @@ myApp.controller('botController', ['$scope', '$http', '$interval', function($sco
             console.log('favBot Response', response);
             $scope.favBot = response.data;
         });
-        //this is 60min interval timer
-    }, 3600000);
+        //this is 60min interval in ms 3600000
+        //this is a 10min interval in ms 600000
+    }, 600000);
 }]);
