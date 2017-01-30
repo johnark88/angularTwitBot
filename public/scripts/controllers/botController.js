@@ -5,8 +5,9 @@ myApp.controller('botController', ['$scope', '$http', '$interval', function($sco
     $scope.bot;
     $scope.favBot;
 
+    //interval timer to start the twitter bot
     $interval(function() {
-
+        //retweet bot
         $http({
             method: 'GET',
             url: '/bot',
@@ -18,7 +19,7 @@ myApp.controller('botController', ['$scope', '$http', '$interval', function($sco
             $scope.bot = response.data;
             console.log($scope.bot);
         });
-
+        // favorite bot
         $http({
             method: 'GET',
             url: '/favBot',
@@ -29,7 +30,6 @@ myApp.controller('botController', ['$scope', '$http', '$interval', function($sco
             console.log('favBot Response', response);
             $scope.favBot = response.data;
         });
+        //this is 60min interval timer
     }, 3600000);
 }]);
-
-//1000 3600000

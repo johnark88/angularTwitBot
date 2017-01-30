@@ -29,11 +29,15 @@ myApp.controller('homeController', ['$scope', '$http', '$firebaseAuth', function
                         id_token: idToken
                     }
                 }).then(function(response) {
+                  //contains user secruity level
                     $scope.userLVL = response.data;
                     console.log($scope.userLVL);
                     sessionStorage.userLVL = response.data;
+                    //holds secruity token
                     sessionStorage.userAuth = idToken;
+                    //holds user google name
                     sessionStorage.userName = firebaseUser.displayName;
+                    //holds user google picture
                     sessionStorage.userPic = firebaseUser.photoURL;
                     $scope.ifFirebaseUser(firebaseUser);
                 });
@@ -48,7 +52,7 @@ myApp.controller('homeController', ['$scope', '$http', '$firebaseAuth', function
     $scope.userName = sessionStorage.userName;
     $scope.userPic = sessionStorage.userPic;
 
-
+    //if user logged in show / don't show these items 
     $scope.ifFirebaseUser = function(fbu) {
         if (fbu) {
             $scope.loggedIn = true;
