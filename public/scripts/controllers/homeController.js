@@ -5,7 +5,8 @@ myApp.controller('homeController', ['$scope', '$http', '$firebaseAuth', function
     $scope.loggedOut = true;
 
     $scope.secret = [];
-    $scope.batman = "batman";
+    $scope.userLVL = 1;
+    console.log($scope.userLVL);
     //login button click
     $scope.logIn = function() {
         console.log('logging in');
@@ -29,10 +30,14 @@ myApp.controller('homeController', ['$scope', '$http', '$firebaseAuth', function
                         id_token: idToken
                     }
                 }).then(function(response) {
-                  //contains user secruity level
-                    $scope.userLVL = response.data;
-                    console.log($scope.userLVL);
-                    sessionStorage.userLVL = response.data;
+                  //pull secruity level from response.data 
+                  response.data.forEach(function(a){
+                      console.log(a.secrecy_level);
+                      $scope.userLVL = a.secrecy_level;
+                    });
+                    console.log($scope.userLVL, 'user sec level ');
+                    //contains user secruity level
+                    sessionStorage.userLVL = $scope.userLVL;
                     //holds secruity token
                     sessionStorage.userAuth = idToken;
                     //holds user google name
@@ -52,7 +57,7 @@ myApp.controller('homeController', ['$scope', '$http', '$firebaseAuth', function
     $scope.userName = sessionStorage.userName;
     $scope.userPic = sessionStorage.userPic;
 
-    //if user logged in show / don't show these items 
+    //if user logged in show / don't show these items
     $scope.ifFirebaseUser = function(fbu) {
         if (fbu) {
             $scope.loggedIn = true;
