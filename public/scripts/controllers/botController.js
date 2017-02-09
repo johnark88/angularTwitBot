@@ -1,8 +1,8 @@
 myApp.controller('botController', ['$scope', '$http', '$interval', function($scope, $http, $interval) {
     console.log('bot Controller');
-
-    var idToken = sessionStorage.getItem('userAuth');
     
+    var idToken = sessionStorage.getItem('userAuth');
+
     $scope.bot;
     $scope.favBot;
 

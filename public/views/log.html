@@ -1,6 +1,9 @@
 <link rel="stylesheet" href="/stylesheets/logStyle.css">
 
-<div class="logger">
+<div ng-show="allowed" class="logger">
   <p> Running Log </p>
+</div>
 
+<div ng-show="restricted" class="logger">
+  <p> You do not have the required clearance level </p>
 </div>
