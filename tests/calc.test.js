@@ -17,6 +17,7 @@ var calculator = {
                     expect(calculator.sum(1, 1)).toBe(2);
                 });
             });
+            
 
             describe('subtract', function() {
                 it('3 - 2 should equal 1', function() {
