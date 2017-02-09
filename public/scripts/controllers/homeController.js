@@ -1,6 +1,6 @@
 myApp.controller('homeController', ['$scope', '$http', '$firebaseAuth', function($scope, $http, $firebaseAuth) {
     console.log('home Controller');
-     auth = $firebaseAuth();
+    auth = $firebaseAuth();
     $scope.loggedIn = false;
     $scope.loggedOut = true;
 
@@ -30,10 +30,10 @@ myApp.controller('homeController', ['$scope', '$http', '$firebaseAuth', function
                         id_token: idToken
                     }
                 }).then(function(response) {
-                  //pull secruity level from response.data
-                  response.data.forEach(function(a){
-                      console.log(a.secrecy_level);
-                      $scope.userLVL = a.secrecy_level;
+                    //pull secruity level from response.data
+                    response.data.forEach(function(a) {
+                        console.log(a.secrecy_level);
+                        $scope.userLVL = a.secrecy_level;
                     });
                     console.log($scope.userLVL, 'user sec level ');
                     //contains user secruity level
@@ -48,7 +48,6 @@ myApp.controller('homeController', ['$scope', '$http', '$firebaseAuth', function
                 });
             });
         } else {
-            console.log('Not logged in or not authorized.');
             $scope.nope = "Not logged in or not authorized";
         }
 
