@@ -31,9 +31,9 @@ myApp.controller('homeController', ['$scope', '$http', '$firebaseAuth', function
                     }
                 }).then(function(response) {
                     //pull secruity level from response.data
-                    response.data.forEach(function(a) {
-                        console.log(a.secrecy_level);
-                        $scope.userLVL = a.secrecy_level;
+                    response.data.forEach(function(response) {
+                        console.log(response.secrecy_level);
+                        $scope.userLVL = response.secrecy_level;
                     });
                     console.log($scope.userLVL, 'user sec level ');
                     //contains user secruity level
