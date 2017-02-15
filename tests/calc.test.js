@@ -35,7 +35,7 @@ describe('calculator', function() {
 });
 
 describe('homeController', function() {
-    // beforeEach(module('myApp'));
+    beforeEach(module('myApp'));
 
     var $controller;
 
