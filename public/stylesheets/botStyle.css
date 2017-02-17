@@ -4,3 +4,15 @@
   font-family: sans-serif;
   color: #3b5f99
 }
+
+.search{
+  text-align: center;
+  font-size: 15px;
+  font-family: sans-serif;
+  color: #3b5f99
+}
+
+.updateBot{
+  margin: 10px;
+  padding: 5px;
+}

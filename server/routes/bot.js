@@ -8,6 +8,7 @@ console.log('bot');
 
 var retweetRes = [];
 var favRes = [];
+var hashtag = '#node, #nodejs';
 
 router.get('/', function(req, res){
   console.log('router');
@@ -15,7 +16,7 @@ router.get('/', function(req, res){
 //result_type sets to search for latest tweets since it started or made the last retweet
 var retweet = function() {
     var params = {
-        q: '#node, #nodejs',
+        q: hashtag,
         result_type: 'recent',
         lang: 'en'
     };

@@ -1,6 +1,6 @@
 myApp.controller('botController', ['$scope', '$http', '$interval', function($scope, $http, $interval) {
     console.log('bot Controller');
-    
+
     var idToken = sessionStorage.getItem('userAuth');
 
     $scope.bot;
@@ -35,4 +35,16 @@ myApp.controller('botController', ['$scope', '$http', '$interval', function($sco
         //this is a 10min interval in ms 600000
         //this is a 1min interval in ms 60000
     }, 3600000);
+
+    $scope.updateBot = function(){
+      console.log('updateBot');
+      const objectToSend = {
+        hashtag: $scope.rtHashtag
+      }
+      console.log(objectToSend, 'new hashtag');
+      $http({
+        method: 'POST',
+        url:'/bot'
+      })
+    }
 }]);
