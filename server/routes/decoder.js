@@ -22,6 +22,7 @@ var tokenDecoder = function(req, res, next) {
         // Seems to be hit when chrome makes request for map files
         // Will also be hit when user does not send back an idToken in the header
         res.sendStatus(403);
+        console.log('4033333')
     }
 };
 

@@ -43,8 +43,14 @@ myApp.controller('botController', ['$scope', '$http', '$interval', function($sco
       }
       console.log(objectToSend, 'new hashtag');
       $http({
-        method: 'POST',
-        url:'/bot'
-      })
+        method: 'PUT',
+        url:'/bot',
+        data: objectToSend,
+        headers: {
+          id_tokens: idToken
+        }
+      }).then(function(response){
+        console.log(response, 'response');
+      });
     }
 }]);

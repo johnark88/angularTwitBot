@@ -4,11 +4,13 @@ var twit = require('twit');
 var config = require('./config.js');
 var Twitter = new twit(config);
 require('dotenv').config(); // Imports all .env values
+var pg = require('pg');
+var connectionString = 'postgres://localhost:5432/johnA';
 console.log('bot');
 
 var retweetRes = [];
 var favRes = [];
-var hashtag = '#node, #nodejs';
+let hashtag = '#node, #nodejs';
 
 router.get('/', function(req, res){
   console.log('router');
@@ -49,7 +51,7 @@ var retweet = function() {
 //grab & retweet as soon as program is running
 retweet();
 //retweet in every 50 minutes
-setInterval(retweet, 3600000);
+// setInterval(retweet, 3600000);
 });
 
 
@@ -60,6 +62,16 @@ function ranDom(arr) {
     return arr[index];
 }
 
-
+router.put(function(req,res){
+  console.log('put route');
+  console.log(req.body);
+  if (err) {
+    console.log(err)
+    res.sendStatus(500);
+}else {
+  console.log('connected to DB');
+  res.send('testResults');
+  }
+});
 
 module.exports = router;

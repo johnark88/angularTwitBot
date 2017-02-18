@@ -4,9 +4,7 @@ var app = express();
 var bodyParser = require('body-parser');
 var path = require('path');
 var morgan = require('morgan');
-var urlencodedParser = bodyParser.urlencoded({
-    extended: false
-});
+var portDecision = process.env.PORT || 5000;
 //decode token
 var decoder = require('./routes/decoder');
 //verify decoded token
@@ -44,6 +42,6 @@ app.use(function(err, req, res, next) {
     res.send(err);
 });
 
-app.listen(process.env.PORT, function() {
-    console.log('I am listening on ', process.env.PORT);
+app.listen(portDecision, function() {
+    console.log('I am listening on ', portDecision);
 });
