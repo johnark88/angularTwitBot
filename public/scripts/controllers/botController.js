@@ -36,21 +36,23 @@ myApp.controller('botController', ['$scope', '$http', '$interval', function($sco
         //this is a 1min interval in ms 60000
     }, 3600000);
 
-    $scope.updateBot = function(){
-      console.log('updateBot');
-      const objectToSend = {
-        hashtag: $scope.rtHashtag
-      }
-      console.log(objectToSend, 'new hashtag');
-      $http({
-        method: 'PUT',
-        url:'/bot',
-        data: objectToSend,
-        headers: {
-          id_tokens: idToken
+    $scope.updateBot = function() {
+        console.log('updateBot');
+
+        const objectToSend = {
+            hashtag: $scope.rtHashtag
         }
-      }).then(function(response){
-        console.log(response, 'response');
-      });
+
+        console.log(objectToSend, 'new hashtag');
+        $http({
+            method: 'POST',
+            url: '/test',
+            data: objectToSend,
+            headers: {
+                id_tokens: idToken
+            }
+        }).then(function(response) {
+            console.log(response, 'response');
+        });
     }
 }]);

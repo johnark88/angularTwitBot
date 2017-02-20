@@ -13,7 +13,7 @@ var login = require('./routes/login');
 //these route serves the twitter bot
 var bot = require('./routes/bot');
 var favBot = require('./routes/favBot');
-
+var test = require('./routes/test');
 
 //this route serves the index
 app.get('/', function(req, res){
@@ -32,6 +32,7 @@ app.use(morgan('dev'));
 app.use("/login", login);
 app.use("/bot", bot);
 app.use("/favBot", favBot);
+app.use("/test", test);
 
 // Imports all .env values
 dotenv.load();

@@ -62,16 +62,4 @@ function ranDom(arr) {
     return arr[index];
 }
 
-router.put(function(req,res){
-  console.log('put route');
-  console.log(req.body);
-  if (err) {
-    console.log(err)
-    res.sendStatus(500);
-}else {
-  console.log('connected to DB');
-  res.send('testResults');
-  }
-});
-
 module.exports = router;
