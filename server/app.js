@@ -37,12 +37,6 @@ app.use("/test", test);
 // Imports all .env values
 dotenv.load();
 
-// display the error and stacktrace accordingly.
-app.use(function(err, req, res, next) {
-    res.status(err.status || 500);
-    res.send(err);
-});
-
 app.listen(portDecision, function() {
     console.log('I am listening on ', portDecision);
 });
