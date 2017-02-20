@@ -20,6 +20,8 @@ app.get('/', function(req, res){
   res.sendFile(path.resolve('./public/index.html'));
 });
 
+
+
 //use public folder
 app.use(express.static('public'));
 
