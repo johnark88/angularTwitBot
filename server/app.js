@@ -2,6 +2,7 @@ var dotenv = require('dotenv');
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
+var urlencodedParser = bodyParser.urlencoded({extended: false});
 var path = require('path');
 var morgan = require('morgan');
 var portDecision = process.env.PORT || 5000;
@@ -19,8 +20,6 @@ var test = require('./routes/test');
 app.get('/', function(req, res){
   res.sendFile(path.resolve('./public/index.html'));
 });
-
-
 
 //use public folder
 app.use(express.static('public'));

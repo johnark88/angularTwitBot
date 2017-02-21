@@ -1,10 +1,13 @@
 var express = require('express');
 var router = express.Router();
+var bodyParser = require('body-parser');
+var urlencodedParser = bodyParser.urlencoded({extended: false});
 var pg = require('pg');
 var connectionString = 'postgres://localhost:5432/johnA';
 console.log('test');
 
-router.post('/', function(req,res){
+
+router.post('/', urlencodedParser, function(req,res){
   console.log('post route');
   console.log(req.body);
   if (err) {
