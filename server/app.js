@@ -5,7 +5,11 @@ var bodyParser = require('body-parser');
 var urlencodedParser = bodyParser.urlencoded({extended: false});
 var path = require('path');
 var morgan = require('morgan');
+
+// Imports all .env values
+dotenv.load();
 var portDecision = process.env.PORT || 5000;
+
 //decode token
 var decoder = require('./routes/decoder');
 //verify decoded token
@@ -35,8 +39,6 @@ app.use("/bot", bot);
 app.use("/favBot", favBot);
 app.use("/test", test);
 
-// Imports all .env values
-dotenv.load();
 
 app.listen(portDecision, function() {
     console.log('I am listening on ', portDecision);
