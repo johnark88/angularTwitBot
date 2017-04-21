@@ -6,7 +6,7 @@ myApp.controller('botController', ['$scope', '$http', '$interval', function($sco
     $scope.favBot;
 
     //interval timer to start the twitter bot
-    $interval(function() {
+    // $interval(function() {
         //retweet bot
         $http({
             method: 'GET',
@@ -33,14 +33,14 @@ myApp.controller('botController', ['$scope', '$http', '$interval', function($sco
         //this is 60min interval in ms 3600000
         //this is a 10min interval in ms 600000
         //this is a 1min interval in ms 60000
-    }, 3600000);
+    // }, 60000);
 
     $scope.updateBot = function() {
         console.log('updateBot');
 
         const objectToSend = {
             hashtag: $scope.rtHashtag
-        }
+        };
 
         console.log(objectToSend, 'new hashtag');
         $http({
@@ -53,5 +53,5 @@ myApp.controller('botController', ['$scope', '$http', '$interval', function($sco
         }).then(function(response) {
             console.log(response, 'response');
         });
-    }
+    };
 }]);

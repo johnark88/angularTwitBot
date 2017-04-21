@@ -6,14 +6,13 @@ var Twitter = new twit(config);
 require('dotenv').config(); // Imports all .env values
 var pg = require('pg');
 var connectionString = 'postgres://localhost:5432/johnA';
-console.log('bot');
+// console.log('bot');
 
 var retweetRes = [];
 var favRes = [];
-let hashtag = '#node, #nodejs';
+let hashtag = '#github, #angular';
 
 router.get('/', function(req, res){
-  console.log('router');
 //find latest tweets based on query(q)
 //result_type sets to search for latest tweets since it started or made the last retweet
 var retweet = function() {
@@ -51,7 +50,7 @@ var retweet = function() {
 //grab & retweet as soon as program is running
 retweet();
 //retweet in every 50 minutes
-// setInterval(retweet, 3600000);
+setInterval(retweet, 3600000);
 });
 
 

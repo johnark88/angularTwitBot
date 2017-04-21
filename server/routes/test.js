@@ -4,7 +4,7 @@ var bodyParser = require('body-parser');
 var urlencodedParser = bodyParser.urlencoded({extended: false});
 var pg = require('pg');
 var connectionString = 'postgres://localhost:5432/johnA';
-console.log('test');
+// console.log('test');
 
 
 router.get("/", urlencodedParser, function(req, res){

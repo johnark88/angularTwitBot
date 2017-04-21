@@ -4,7 +4,7 @@ var twit = require('twit');
 var config = require('./config.js');
 var Twitter = new twit(config);
 require('dotenv').config(); // Imports all .env values
-console.log('favBot');
+// console.log('favBot');
 
 
 
