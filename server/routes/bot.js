@@ -10,12 +10,14 @@ var connectionString = 'postgres://localhost:5432/johnA';
 
 var retweetRes = [];
 var favRes = [];
-let hashtag = '#github, #angular';
+let hashtag = '#webdev, #github';
+var retweetCalls = 0;
 
 router.get('/', function(req, res){
 //find latest tweets based on query(q)
 //result_type sets to search for latest tweets since it started or made the last retweet
 var retweet = function() {
+
     var params = {
         q: hashtag,
         result_type: 'recent',
@@ -32,23 +34,25 @@ var retweet = function() {
             }, function(err, response) {
                 if (response) {
                     console.log('Retweeted');
-                    res.send('Retweeted');
+                    return res.send('Retweeted');
                 }
                 if (err) {
                     //error while tweeting
                     console.log('Something Went Wrong with retweet ');
-
+                    return res.send('Something Went Wrong with retweet ');
                 }
             });
         } else {
             //if unable to search a tweet
             console.log('Something Went wrong while searching');
-            res.send('Something went wrong whihle searching');
+            return res.send('Something went wrong whihle searching');
         }
     });
 };
 //grab & retweet as soon as program is running
 retweet();
+retweetCalls++;
+console.log( "retweetCalls has been called " + retweetCalls + " times" );
 //retweet in every 50 minutes
 setInterval(retweet, 3600000);
 });

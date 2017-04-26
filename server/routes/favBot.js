@@ -6,14 +6,14 @@ var Twitter = new twit(config);
 require('dotenv').config(); // Imports all .env values
 // console.log('favBot');
 
-
+var favtweetCalls = 0;
 
 router.get('/', function(req, res){
 //favorite Bot ===============================================
 //find random tweet and favorite it
 var favoriteTweet = function() {
     var params = {
-        q: '#node, #nodejs',
+        q: '#angularjs, #javascript',
         result_type: 'recent',
         lang: 'en'
     };
@@ -30,10 +30,10 @@ var favoriteTweet = function() {
             }, function(err, response) {
                 if (err) {
                     console.log('Can not be favorite');
-                    res.send('Can not be favorited');
+                    return res.send('Can not be favorited');
                 } else {
                     console.log('Favorited -- Success!');
-                    res.send('Favorited Success!');
+                    return res.send('Favorited Success!');
                 }
             });
         }
@@ -43,6 +43,8 @@ var favoriteTweet = function() {
 
 //grab and favorite as program starts
 favoriteTweet();
+favtweetCalls++;
+console.log( "favtweetCalls has been called " + favtweetCalls + " times" );
 //favorite a tweet every 60 minutes
 setInterval(favoriteTweet, 3600000);
 });
