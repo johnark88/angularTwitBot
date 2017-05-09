@@ -10,7 +10,7 @@ var connectionString = 'postgres://localhost:5432/johnA';
 
 var retweetRes = [];
 var favRes = [];
-let hashtag = '#webdev, #github';
+var hashtag = '#webdev, #github';
 var retweetCalls = 0;
 
 router.get('/', function(req, res){
