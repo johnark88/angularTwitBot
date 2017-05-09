@@ -4,9 +4,9 @@ var twit = require('twit');
 var config = require('./config.js');
 var Twitter = new twit(config);
 require('dotenv').config(); // Imports all .env values
-var pg = require('pg');
-var connectionString = 'postgres://localhost:5432/johnA';
-// console.log('bot');
+// var pg = require('pg');
+// var connectionString = 'postgres://localhost:5432/johnA';
+// // console.log('bot');
 
 var retweetRes = [];
 var favRes = [];
@@ -64,5 +64,7 @@ function ranDom(arr) {
     var index = Math.floor(Math.random() * arr.length);
     return arr[index];
 }
+
+
 
 module.exports = router;

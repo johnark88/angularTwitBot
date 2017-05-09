@@ -38,13 +38,13 @@ myApp.controller('botController', ['$scope', '$http', '$interval', function($sco
     $scope.updateBot = function() {
         console.log('updateBot');
 
-        const objectToSend = {
+        var objectToSend = {
             hashtag: $scope.rtHashtag
         };
 
         console.log(objectToSend, 'new hashtag');
         $http({
-            method: 'POST',
+            method: 'PUT',
             url: '/test',
             data: objectToSend,
             headers: {
